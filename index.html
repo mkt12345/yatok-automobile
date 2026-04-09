@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yatok Automobiles – Ghana's #1 destination for quality premium vehicles. BMW, Audi, Mercedes, Porsche and more.">
+  <title>Yatok Automobiles – Drive Your Dreams</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="ya-topbar">
+  <div class="ya-topbar-inner">
+    <div class="ya-topbar-left">
+      <a href="tel:0204540357">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (020) 4540357
+      </a>
+      <a href="mailto:donkhaiif13@gmail.com">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        donkhaiif13@gmail.com
+      </a>
+    </div>
+    <div class="ya-topbar-right">
+      <span>Free Delivery on Orders above $50,000</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── HEADER ── -->
+<header class="ya-header" id="yaHeader">
+  <div class="ya-header-inner">
+    <!-- Logo -->
+    <a href="index.html" class="ya-logo">
+      <div class="ya-logo-icon">YA</div>
+      <div class="ya-logo-text">
+        <span class="ya-logo-name">YATOK</span>
+        <span class="ya-logo-sub">AUTOMOBILES</span>
+      </div>
+    </a>
+
+    <!-- Search -->
+    <div class="ya-search">
+      <input type="search" placeholder="Search cars, brands…" id="yaSearch" oninput="handleSearch(this.value)" autocomplete="off"/>
+      <button type="button" onclick="triggerSearch()">
+        <svg viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+
+    <!-- Actions -->
+    <div class="ya-header-actions">
+      <a href="#wishlist" onclick="showWishlist(event)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Wishlist
+      </a>
+      <a href="#cart" class="ya-cart-wrap" onclick="showCart(event)">
+        <span class="ya-badge" id="cartCount">0</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Cart (<span id="cartCountInner">0</span>)
+      </a>
+      <!-- Mobile hamburger -->
+      <button class="ya-hamburger" onclick="yaToggleMenu()" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ── NAVIGATION ── -->
+<nav class="ya-nav">
+  <div class="ya-nav-inner">
+    <button class="ya-nav-btn" onclick="yaToggleCats()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+        <line x1="3" y1="6"  x2="21" y2="6"/>
+        <line x1="3" y1="12" x2="21" y2="12"/>
+        <line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+      All Categories
+    </button>
+    <ul class="ya-nav-menu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#new-arrivals">New Arrivals</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── MOBILE MENU ── -->
+<div class="ya-mobile-menu" id="yaMobileMenu">
+  <a href="index.html">Home</a>
+  <a href="#brands">Brands</a>
+  <a href="#new-arrivals">New Arrivals</a>
+  <a href="#featured">Featured</a>
+  <a href="#contact">Contact Us</a>
+</div>
+
+<!-- ── CATEGORIES DROPDOWN ── -->
+<div class="ya-cats-dropdown" id="yaCatsDropdown">
+  <div class="ya-cats-grid">
+    <a href="#" class="ya-cat-item"><span>🏎️</span> Sports Cars</a>
+    <a href="#" class="ya-cat-item"><span>🚗</span> Sedans</a>
+    <a href="#" class="ya-cat-item"><span>🚙</span> SUVs</a>
+    <a href="#" class="ya-cat-item"><span>🛻</span> Trucks</a>
+    <a href="#" class="ya-cat-item"><span>⚡</span> Electric</a>
+    <a href="#" class="ya-cat-item"><span>🌿</span> Hybrid</a>
+    <a href="#" class="ya-cat-item"><span>🏆</span> Luxury</a>
+    <a href="#" class="ya-cat-item"><span>🔑</span> Pre-Owned</a>
+  </div>
+</div>
+
+<!-- ── HERO SLIDER ── -->
+<div class="ya-hero">
+  <div class="ya-slides" id="yaSlides">
+    <div class="ya-slide" style="background-image:url('https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1400&q=80')">
+      <div class="ya-slide-content">
+        <h1>Drive Your <span>Dreams</span> with Us</h1>
+        <p>Your #1 Destination for Quality Cars. Experience luxury on four wheels.</p>
+        <a href="#featured" class="ya-btn">Shop Now</a>
+      </div>
+    </div>
+    <div class="ya-slide" style="background-image:url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1400&q=80')">
+      <div class="ya-slide-content">
+        <h1>New <span>Arrivals</span> Just Dropped</h1>
+        <p>The latest 2024 models are here. Be the first to drive them home.</p>
+        <a href="#new-arrivals" class="ya-btn">View New Arrivals</a>
+      </div>
+    </div>
+    <div class="ya-slide" style="background-image:url('https://images.unsplash.com/photo-1555215695-3004980ad54e?w=1400&q=80')">
+      <div class="ya-slide-content">
+        <h1>Unbeatable <span>Deals</span> This Month</h1>
+        <p>Save big on premium vehicles. Limited stock available — act fast.</p>
+        <a href="#featured" class="ya-btn">See Deals</a>
+      </div>
+    </div>
+    <div class="ya-slide" style="background-image:url('https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1400&q=80')">
+      <div class="ya-slide-content">
+        <h1>Premium <span>Brands</span> One Place</h1>
+        <p>BMW, Audi, Mercedes, Porsche — all under one roof at Yatok.</p>
+        <a href="#brands" class="ya-btn">Browse Brands</a>
+      </div>
+    </div>
+  </div>
+  <div class="ya-hero-arrow prev" onclick="heroMove(-1)">&#8249;</div>
+  <div class="ya-hero-arrow next" onclick="heroMove(1)">&#8250;</div>
+  <div class="ya-hero-dots" id="yaHeroDots"></div>
+</div>
+
+<!-- ── ABOUT + CONTACT ── -->
+<div class="ya-bc-grid" id="contact">
+  <div class="ya-about-panel ya-reveal">
+    <div class="ya-about-logo">
+      <div class="ya-logo-icon ya-logo-icon--lg">YA</div>
+      <div class="ya-logo-text">
+        <span class="ya-logo-name ya-logo-name--lg">YATOK</span>
+        <span class="ya-logo-sub ya-logo-sub--lg">AUTOMOBILES</span>
+      </div>
+    </div>
+    <div class="ya-about-divider"></div>
+    <p class="ya-about-tagline">Drive Your Dreams with Us</p>
+    <p class="ya-about-text">
+      Yatok Automobiles is Ghana's #1 destination for quality premium vehicles. We offer an unmatched selection of luxury and performance cars — verified, fairly priced, and delivered with exceptional service.
+    </p>
+    <div class="ya-about-stats">
+      <div class="ya-stat">
+        <span class="ya-stat-num">500<span class="ya-stat-plus">+</span></span>
+        <span class="ya-stat-label">Cars Listed</span>
+      </div>
+      <div class="ya-stat-divider"></div>
+      <div class="ya-stat">
+        <span class="ya-stat-num">10<span class="ya-stat-plus">+</span></span>
+        <span class="ya-stat-label">Years Experience</span>
+      </div>
+      <div class="ya-stat-divider"></div>
+      <div class="ya-stat">
+        <span class="ya-stat-num">1K<span class="ya-stat-plus">+</span></span>
+        <span class="ya-stat-label">Happy Customers</span>
+      </div>
+    </div>
+    <a href="#contact" class="ya-btn-sm ya-about-cta">Learn More About Us &rarr;</a>
+  </div>
+
+  <div class="ya-contact-card">
+    <h3>Contact Us</h3>
+    <div class="ya-contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      (020) 4540357
+    </div>
+    <div class="ya-contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      donkhaiif13@gmail.com
+    </div>
+    <div class="ya-contact-item">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      Accra, Ghana
+    </div>
+    <div class="ya-contact-form">
+      <input type="text" placeholder="Your Name" id="contactName"/>
+      <input type="email" placeholder="Email Address" id="contactEmail"/>
+      <textarea placeholder="Your message…" id="contactMsg" rows="3"></textarea>
+      <button class="ya-btn" style="width:100%;margin-top:4px;" onclick="sendMessage()">Send Message</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FEATURED CARS ── -->
+<div class="ya-section" id="featured">
+  <div class="ya-section-title">Featured Cars</div>
+  <div class="ya-cars-wrap">
+    <div class="ya-s-nav s-prev" onclick="carMove(-1)">&#8249;</div>
+    <div class="ya-cars-slider" id="yaCarsSlider">
+
+      <div class="ya-car-card ya-reveal">
+        <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80" alt="2024 BMW M4 Competition" loading="lazy"/>
+        <div class="ya-car-info">
+          <h4>2024 BMW M4 Competition</h4>
+          <div class="ya-car-meta"><span class="ya-tag">Sport</span><span class="ya-tag">New</span></div>
+          <div class="ya-car-price">$79,999 <small>/ negotiable</small></div>
+          <div class="ya-car-actions">
+            <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 BMW M4 Competition','$79,999')">Add to Cart</a>
+            <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 BMW M4 Competition')" title="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ya-car-card ya-reveal">
+        <img src="https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80" alt="2024 Audi RS7 Sportback" loading="lazy"/>
+        <div class="ya-car-info">
+          <h4>2024 Audi RS7 Sportback</h4>
+          <div class="ya-car-meta"><span class="ya-tag">Luxury</span><span class="ya-tag">New</span></div>
+          <div class="ya-car-price">$119,999 <small>/ negotiable</small></div>
+          <div class="ya-car-actions">
+            <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 Audi RS7 Sportback','$119,999')">Add to Cart</a>
+            <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 Audi RS7 Sportback')" title="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ya-car-card ya-reveal">
+        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=80" alt="2023 Mercedes-Benz C65 S" loading="lazy"/>
+        <div class="ya-car-info">
+          <h4>2023 Mercedes-Benz C65 S</h4>
+          <div class="ya-car-meta"><span class="ya-tag">Luxury</span><span class="ya-tag">Sale</span></div>
+          <div class="ya-car-price">$95,999 <small>/ negotiable</small></div>
+          <div class="ya-car-actions">
+            <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2023 Mercedes-Benz C65 S','$95,999')">Add to Cart</a>
+            <button class="ya-wish-btn" onclick="addToWishlist(event,'2023 Mercedes-Benz C65 S')" title="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ya-car-card ya-reveal">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80" alt="2024 Porsche 911 Turbo S" loading="lazy"/>
+        <div class="ya-car-info">
+          <h4>2024 Porsche 911 Turbo S</h4>
+          <div class="ya-car-meta"><span class="ya-tag">Sport</span><span class="ya-tag">Featured</span></div>
+          <div class="ya-car-price">$215,000 <small>/ negotiable</small></div>
+          <div class="ya-car-actions">
+            <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 Porsche 911 Turbo S','$215,000')">Add to Cart</a>
+            <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 Porsche 911 Turbo S')" title="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="ya-car-card ya-reveal">
+        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80" alt="2023 Lamborghini Urus S" loading="lazy"/>
+        <div class="ya-car-info">
+          <h4>2023 Lamborghini Urus S</h4>
+          <div class="ya-car-meta"><span class="ya-tag">SUV</span><span class="ya-tag">Exotic</span></div>
+          <div class="ya-car-price">$265,000 <small>/ negotiable</small></div>
+          <div class="ya-car-actions">
+            <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2023 Lamborghini Urus S','$265,000')">Add to Cart</a>
+            <button class="ya-wish-btn" onclick="addToWishlist(event,'2023 Lamborghini Urus S')" title="Wishlist">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ya-s-nav s-next" onclick="carMove(1)">&#8250;</div>
+  </div>
+  <div class="ya-s-dots" id="yaCarDots"></div>
+</div>
+
+<!-- ── NEW ARRIVALS ── -->
+<div class="ya-section" id="new-arrivals" style="padding-top:0;">
+  <div class="ya-section-title">New Arrivals</div>
+  <div class="ya-arrivals-grid">
+    <div class="ya-car-card ya-reveal">
+      <div class="ya-badge-ribbon">NEW</div>
+      <img src="https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=600&q=80" alt="2024 Ferrari Roma" loading="lazy"/>
+      <div class="ya-car-info">
+        <h4>2024 Ferrari Roma</h4>
+        <div class="ya-car-meta"><span class="ya-tag ya-tag--red">New 2024</span></div>
+        <div class="ya-car-price">$228,000 <small>/ negotiable</small></div>
+        <div class="ya-car-actions">
+          <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 Ferrari Roma','$228,000')">Add to Cart</a>
+          <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 Ferrari Roma')" title="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="ya-car-card ya-reveal">
+      <div class="ya-badge-ribbon">NEW</div>
+      <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80" alt="2024 Range Rover Autobiography" loading="lazy"/>
+      <div class="ya-car-info">
+        <h4>2024 Range Rover Autobiography</h4>
+        <div class="ya-car-meta"><span class="ya-tag ya-tag--red">New 2024</span></div>
+        <div class="ya-car-price">$189,000 <small>/ negotiable</small></div>
+        <div class="ya-car-actions">
+          <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 Range Rover Autobiography','$189,000')">Add to Cart</a>
+          <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 Range Rover Autobiography')" title="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="ya-car-card ya-reveal">
+      <div class="ya-badge-ribbon">NEW</div>
+      <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&q=80" alt="2024 Tesla Model S Plaid" loading="lazy"/>
+      <div class="ya-car-info">
+        <h4>2024 Tesla Model S Plaid</h4>
+        <div class="ya-car-meta"><span class="ya-tag">Electric</span><span class="ya-tag ya-tag--red">New 2024</span></div>
+        <div class="ya-car-price">$109,990 <small>/ negotiable</small></div>
+        <div class="ya-car-actions">
+          <a href="#" class="ya-btn-sm" onclick="addToCart(event,'2024 Tesla Model S Plaid','$109,990')">Add to Cart</a>
+          <button class="ya-wish-btn" onclick="addToWishlist(event,'2024 Tesla Model S Plaid')" title="Wishlist">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BRANDS ── -->
+<div class="ya-section" id="brands" style="padding-top:0;">
+  <div class="ya-section-title">Top Brands</div>
+  <div class="ya-brands-row">
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('BMW')">BMW</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Audi')">Audi</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Mercedes')">Mercedes-Benz</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Porsche')">Porsche</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Lamborghini')">Lamborghini</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Ferrari')">Ferrari</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Range Rover')">Range Rover</div>
+    <div class="ya-brand-pill ya-reveal" onclick="filterBrand('Tesla')">Tesla</div>
+  </div>
+</div>
+
+<!-- ── WHY CHOOSE US ── -->
+<div class="ya-why-wrap">
+  <div class="ya-why-grid">
+    <div class="ya-why-card ya-reveal">
+      <div class="ya-why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+        </svg>
+      </div>
+      <h4>100% Verified Cars</h4>
+      <p>Every vehicle goes through a thorough inspection before listing.</p>
+    </div>
+    <div class="ya-why-card ya-reveal">
+      <div class="ya-why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
+        </svg>
+      </div>
+      <h4>Secure Payment</h4>
+      <p>Multiple secure payment options including installment plans available.</p>
+    </div>
+    <div class="ya-why-card ya-reveal">
+      <div class="ya-why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"/>
+        </svg>
+      </div>
+      <h4>24/7 Support</h4>
+      <p>Our team is always available to assist with your car purchase journey.</p>
+    </div>
+    <div class="ya-why-card ya-reveal">
+      <div class="ya-why-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"/>
+        </svg>
+      </div>
+      <h4>Easy Returns</h4>
+      <p>Not satisfied? Our hassle-free return policy has you covered.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── TESTIMONIALS ── -->
+<div class="ya-section">
+  <div class="ya-section-title">What Our Customers Say</div>
+  <div class="ya-testi-grid">
+    <div class="ya-testi-card ya-reveal">
+      <div class="ya-stars">★★★★★</div>
+      <p>Bought my BMW M4 through Yatok and the experience was flawless. Clean transaction, great team, and the car was exactly as described.</p>
+      <div class="ya-testi-author">
+        <div class="ya-avatar">KA</div>
+        <div>
+          <h5>Kwame Asante</h5>
+          <span>BMW M4 Owner</span>
+        </div>
+      </div>
+    </div>
+    <div class="ya-testi-card ya-reveal">
+      <div class="ya-stars">★★★★★</div>
+      <p>The search tool helped me find exactly what I needed in minutes. Delivery was fast and the staff were super professional. Highly recommend!</p>
+      <div class="ya-testi-author">
+        <div class="ya-avatar">AO</div>
+        <div>
+          <h5>Abena Osei</h5>
+          <span>Audi RS7 Owner</span>
+        </div>
+      </div>
+    </div>
+    <div class="ya-testi-card ya-reveal">
+      <div class="ya-stars">★★★★☆</div>
+      <p>Amazing selection and competitive pricing. The installment plan made it possible for me to get my dream Mercedes. Very satisfied!</p>
+      <div class="ya-testi-author">
+        <div class="ya-avatar">EK</div>
+        <div>
+          <h5>Emmanuel Kumi</h5>
+          <span>Mercedes C65 Owner</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── NEWSLETTER ── -->
+<div class="ya-newsletter-wrap">
+  <div class="ya-newsletter">
+    <h2>Stay in the Fast Lane</h2>
+    <p>Subscribe for exclusive deals, new arrivals, and automotive news.</p>
+    <div class="ya-nl-form">
+      <input type="email" placeholder="Enter your email address…" id="nlEmail"/>
+      <button type="button" onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer class="ya-footer">
+  <div class="ya-footer-grid">
+    <div class="ya-footer-brand">
+      <a href="index.html" class="ya-logo">
+        <div class="ya-logo-icon">YA</div>
+        <div class="ya-logo-text">
+          <span class="ya-logo-name">YATOK</span>
+          <span class="ya-logo-sub">AUTOMOBILES</span>
+        </div>
+      </a>
+      <p>Your #1 destination for quality cars in Ghana. Premium vehicles, trusted service, unbeatable prices.</p>
+      <div class="ya-social">
+        <a href="#" title="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        <a href="#" title="Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </a>
+        <a href="#" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://wa.me/233204540357" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="ya-footer-col">
+      <h4>Customer Service</h4>
+      <ul>
+        <li><a href="#contact">Contact Us</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Return Policy</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Live Chat</a></li>
+      </ul>
+    </div>
+
+    <div class="ya-footer-col">
+      <h4>Car Types</h4>
+      <ul>
+        <li><a href="#">Sports Cars</a></li>
+        <li><a href="#">SUVs</a></li>
+        <li><a href="#">Sedans</a></li>
+        <li><a href="#">Electric</a></li>
+        <li><a href="#">Pre-Owned</a></li>
+      </ul>
+    </div>
+
+    <div class="ya-footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="ya-footer-col">
+      <h4>Car Brands</h4>
+      <ul>
+        <li><a href="#">BMW</a></li>
+        <li><a href="#">Audi</a></li>
+        <li><a href="#">Mercedes-Benz</a></li>
+        <li><a href="#">Porsche</a></li>
+        <li><a href="#">Lamborghini</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="ya-footer-bottom">
+    <p>&copy; <span id="footerYear"></span> Yatok Automobiles. All rights reserved.</p>
+    <div class="ya-footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Sitemap</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ── TOAST NOTIFICATION ── -->
+<div class="ya-toast" id="yaToast"></div>
+
+<!-- ── BACK TO TOP ── -->
+<button class="ya-back-top" id="yaBackTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
